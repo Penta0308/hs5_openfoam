@@ -1,0 +1,118 @@
+{
+  "caseId": "hs5-cfd-current",
+  "generatedAt": "2026-08-11T14:28:58.218241+00:00",
+  "openfoam": {
+    "version": "14",
+    "bashrc": "/opt/openfoam14/etc/bashrc"
+  },
+  "inventor": {
+    "cfd": "C:\\Users\\penta\\Documents\\a5100\\hs5\\hs5_cfd.ipt"
+  },
+  "geometry": {
+    "cfdObj": "constant/triSurface/hs5_cfd.openfoam.obj",
+    "rawCfdObj": "constant/triSurface/hs5_cfd.obj",
+    "objRegionManifest": "obj_region_manifest.json"
+  },
+  "openfoamRegions": {
+    "patch_inlet": "inlet",
+    "patch_heatsource": "heat_source",
+    "patch_outlet": "outlet",
+    "wall": "wall",
+    "mrf": "fan_mrf_zone",
+    "aluminum": "aluminum"
+  },
+  "cfdNamingContract": {
+  "sourceDocument": "hs5_cfd.ipt",
+  "solidRoles": {
+    "master": "cfd_domain",
+    "master_1": "aluminum",
+    "mrf": "fan_mrf_zone"
+  },
+  "patchRules": {
+    "patch_inlet": "inlet",
+    "patch_heatsource": "heat_source",
+    "patch_outlet": "outlet",
+    "patch_outlet_#": "outlet",
+    "default": "wall"
+  },
+  "detectedNamedFaces": [],
+  "missingRequiredNamedFaces": [
+    "patch_inlet",
+    "patch_heatsource"
+  ]
+},
+  "parameters": {
+  "d0": {
+    "expression": "1.000 ul",
+    "units": "ul"
+  },
+  "d1": {
+    "expression": "1.000 ul",
+    "units": "ul"
+  },
+  "OfanX": {
+    "expression": "36.000 mm",
+    "units": "mm"
+  },
+  "OfanY": {
+    "expression": "20.000 mm",
+    "units": "mm"
+  },
+  "OinletDiameter": {
+    "expression": "16.000 mm",
+    "units": "mm"
+  },
+  "wallThickness": {
+    "expression": "1.200 mm",
+    "units": "mm"
+  },
+  "OvoluteStartClearance": {
+    "expression": "0.500 mm",
+    "units": "mm"
+  },
+  "OvoluteStartY": {
+    "expression": "14.000 mm",
+    "units": "mm"
+  },
+  "Ovoulte1Dia": {
+    "expression": "13.000 mm",
+    "units": "mm"
+  },
+  "Ovoulte2Dia": {
+    "expression": "17.000 mm",
+    "units": "mm"
+  },
+  "OdiagOutletAngle": {
+    "expression": "50.00 deg",
+    "units": "deg"
+  },
+  "OfanZ": {
+    "expression": "4.000 mm",
+    "units": "mm"
+  },
+  "OinletChamfer": {
+    "expression": "1.000 mm",
+    "units": "mm"
+  },
+  "d2": {
+    "expression": "1.000 ul",
+    "units": "ul"
+  },
+  "d3": {
+    "expression": "180 deg",
+    "units": "deg"
+  },
+  "d4": {
+    "expression": "OfanX",
+    "units": "mm"
+  },
+  "d5": {
+    "expression": "OfanY",
+    "units": "mm"
+  },
+  "d6": {
+    "expression": "OfanZ - 0.4 mm",
+    "units": "mm"
+  }
+}
+}

@@ -1,0 +1,216 @@
+{
+  "generatedAt": "2026-08-02T09:57:25.044816+00:00",
+  "cfd": {
+    "displayName": "hs5_cfd.ipt",
+    "path": "C:\\Users\\penta\\Documents\\a5100\\hs5\\hs5_cfd.ipt",
+    "parameters": {
+      "d0": {
+        "expression": "1.000 ul",
+        "units": "ul"
+      },
+      "d1": {
+        "expression": "1.000 ul",
+        "units": "ul"
+      },
+      "OfanX": {
+        "expression": "36.000 mm",
+        "units": "mm"
+      },
+      "OfanY": {
+        "expression": "20.000 mm",
+        "units": "mm"
+      },
+      "OinletDiameter": {
+        "expression": "16.000 mm",
+        "units": "mm"
+      },
+      "wallThickness": {
+        "expression": "1.200 mm",
+        "units": "mm"
+      },
+      "OvoluteStartClearance": {
+        "expression": "0.500 mm",
+        "units": "mm"
+      },
+      "OvoluteStartY": {
+        "expression": "14.000 mm",
+        "units": "mm"
+      },
+      "Ovoulte1Dia": {
+        "expression": "13.000 mm",
+        "units": "mm"
+      },
+      "Ovoulte2Dia": {
+        "expression": "17.000 mm",
+        "units": "mm"
+      },
+      "OdiagOutletAngle": {
+        "expression": "50.00 deg",
+        "units": "deg"
+      },
+      "OfanZ": {
+        "expression": "4.000 mm",
+        "units": "mm"
+      },
+      "OinletChamfer": {
+        "expression": "1.000 mm",
+        "units": "mm"
+      }
+    },
+    "bodies": [
+      {
+        "name": "master",
+        "role": "cfd_domain",
+        "visible": true
+      },
+      {
+        "name": "mrf",
+        "role": "fan_mrf_zone",
+        "visible": false
+      },
+      {
+        "name": "master_1",
+        "role": "aluminum",
+        "visible": false
+      }
+    ],
+    "namedFaces": [
+      {
+        "body": "master",
+        "name": "patch_inlet",
+        "role": "inlet"
+      },
+      {
+        "body": "master",
+        "name": "patch_heat_source",
+        "role": "wall"
+      },
+      {
+        "body": "master",
+        "name": "patch_outlet_2",
+        "role": "outlet"
+      },
+      {
+        "body": "master",
+        "name": "patch_outlet_1",
+        "role": "outlet"
+      }
+    ],
+    "faceNameDiagnostics": {
+      "bodies": [
+        {
+          "name": "master",
+          "attributes": [],
+          "namedFaces": [
+            {
+              "index": 3,
+              "name": "patch_inlet"
+            },
+            {
+              "index": 4,
+              "name": "patch_heat_source"
+            },
+            {
+              "index": 6,
+              "name": "patch_outlet_2"
+            },
+            {
+              "index": 10,
+              "name": "patch_outlet_1"
+            }
+          ],
+          "facesWithAttributes": [
+            {
+              "index": 3,
+              "name": "patch_inlet",
+              "attributes": [
+                {
+                  "name": "iLogicEntityNameSet",
+                  "attributes": {
+                    "iLogicEntityName": "patch_inlet",
+                    "iLogicEntityNameFeatureName": "EAIAABAAAADVAAAAAAAAAIAAAAAAAAAA\t"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 4,
+              "name": "patch_heat_source",
+              "attributes": [
+                {
+                  "name": "iLogicEntityNameSet",
+                  "attributes": {
+                    "iLogicEntityName": "patch_heat_source",
+                    "iLogicEntityNameFeatureName": "EAIAABAAAADVAAAAAAAAAIAAAAAAAAAA\t"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 6,
+              "name": "patch_outlet_2",
+              "attributes": [
+                {
+                  "name": "iLogicEntityNameSet",
+                  "attributes": {
+                    "iLogicEntityName": "patch_outlet_2",
+                    "iLogicEntityNameFeatureName": "EAIAABAAAADVAAAAAAAAAIAAAAAAAAAA\t"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 10,
+              "name": "patch_outlet_1",
+              "attributes": [
+                {
+                  "name": "iLogicEntityNameSet",
+                  "attributes": {
+                    "iLogicEntityName": "patch_outlet_1",
+                    "iLogicEntityNameFeatureName": "EAIAABAAAADVAAAAAAAAAIAAAAAAAAAA\t"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "mrf",
+          "attributes": [],
+          "namedFaces": [],
+          "facesWithAttributes": []
+        },
+        {
+          "name": "master_1",
+          "attributes": [],
+          "namedFaces": [],
+          "facesWithAttributes": []
+        }
+      ]
+    }
+  },
+  "cfdNamingContract": {
+    "sourceDocument": "hs5_cfd.ipt",
+    "solidRoles": {
+      "master": "cfd_domain",
+      "master_1": "aluminum",
+      "mrf": "fan_mrf_zone"
+    },
+    "patchRules": {
+      "patch_inlet": "inlet",
+      "patch_heatsource": "heat_source",
+      "patch_outlet": "outlet",
+      "patch_outlet_#": "outlet",
+      "default": "wall"
+    },
+    "detectedNamedFaces": [
+      "patch_heat_source",
+      "patch_inlet",
+      "patch_outlet_1",
+      "patch_outlet_2"
+    ],
+    "missingRequiredNamedFaces": [
+      "patch_heatsource"
+    ]
+  }
+}

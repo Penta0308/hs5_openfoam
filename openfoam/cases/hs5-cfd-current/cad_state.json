@@ -1,0 +1,141 @@
+{
+  "generatedAt": "2026-08-11T14:28:51.651170+00:00",
+  "cfd": {
+    "displayName": "hs5_cfd.ipt",
+    "path": "C:\\Users\\penta\\Documents\\a5100\\hs5\\hs5_cfd.ipt",
+    "parameters": {
+      "d0": {
+        "expression": "1.000 ul",
+        "units": "ul"
+      },
+      "d1": {
+        "expression": "1.000 ul",
+        "units": "ul"
+      },
+      "OfanX": {
+        "expression": "36.000 mm",
+        "units": "mm"
+      },
+      "OfanY": {
+        "expression": "20.000 mm",
+        "units": "mm"
+      },
+      "OinletDiameter": {
+        "expression": "16.000 mm",
+        "units": "mm"
+      },
+      "wallThickness": {
+        "expression": "1.200 mm",
+        "units": "mm"
+      },
+      "OvoluteStartClearance": {
+        "expression": "0.500 mm",
+        "units": "mm"
+      },
+      "OvoluteStartY": {
+        "expression": "14.000 mm",
+        "units": "mm"
+      },
+      "Ovoulte1Dia": {
+        "expression": "13.000 mm",
+        "units": "mm"
+      },
+      "Ovoulte2Dia": {
+        "expression": "17.000 mm",
+        "units": "mm"
+      },
+      "OdiagOutletAngle": {
+        "expression": "50.00 deg",
+        "units": "deg"
+      },
+      "OfanZ": {
+        "expression": "4.000 mm",
+        "units": "mm"
+      },
+      "OinletChamfer": {
+        "expression": "1.000 mm",
+        "units": "mm"
+      },
+      "d2": {
+        "expression": "1.000 ul",
+        "units": "ul"
+      },
+      "d3": {
+        "expression": "180 deg",
+        "units": "deg"
+      },
+      "d4": {
+        "expression": "OfanX",
+        "units": "mm"
+      },
+      "d5": {
+        "expression": "OfanY",
+        "units": "mm"
+      },
+      "d6": {
+        "expression": "OfanZ - 0.4 mm",
+        "units": "mm"
+      }
+    },
+    "bodies": [
+      {
+        "name": "master",
+        "role": "cfd_domain",
+        "visible": true
+      },
+      {
+        "name": "mrf",
+        "role": "fan_mrf_zone",
+        "visible": true
+      },
+      {
+        "name": "master_1",
+        "role": "aluminum",
+        "visible": true
+      }
+    ],
+    "namedFaces": [],
+    "faceNameDiagnostics": {
+      "bodies": [
+        {
+          "name": "master",
+          "attributes": [],
+          "namedFaces": [],
+          "facesWithAttributes": []
+        },
+        {
+          "name": "mrf",
+          "attributes": [],
+          "namedFaces": [],
+          "facesWithAttributes": []
+        },
+        {
+          "name": "master_1",
+          "attributes": [],
+          "namedFaces": [],
+          "facesWithAttributes": []
+        }
+      ]
+    }
+  },
+  "cfdNamingContract": {
+    "sourceDocument": "hs5_cfd.ipt",
+    "solidRoles": {
+      "master": "cfd_domain",
+      "master_1": "aluminum",
+      "mrf": "fan_mrf_zone"
+    },
+    "patchRules": {
+      "patch_inlet": "inlet",
+      "patch_heatsource": "heat_source",
+      "patch_outlet": "outlet",
+      "patch_outlet_#": "outlet",
+      "default": "wall"
+    },
+    "detectedNamedFaces": [],
+    "missingRequiredNamedFaces": [
+      "patch_inlet",
+      "patch_heatsource"
+    ]
+  }
+}

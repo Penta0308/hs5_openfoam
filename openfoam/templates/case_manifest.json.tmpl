@@ -1,0 +1,26 @@
+{
+  "caseId": "[[CASE_ID]]",
+  "generatedAt": "[[GENERATED_AT]]",
+  "openfoam": {
+    "version": "14",
+    "bashrc": "/opt/openfoam14/etc/bashrc"
+  },
+  "inventor": {
+    "cfd": [[CFD_IPT_JSON]]
+  },
+  "geometry": {
+    "cfdObj": "constant/triSurface/hs5_cfd.openfoam.obj",
+    "rawCfdObj": "constant/triSurface/hs5_cfd.obj",
+    "objRegionManifest": "obj_region_manifest.json"
+  },
+  "openfoamRegions": {
+    "patch_inlet": "inlet",
+    "patch_heatsource": "heat_source",
+    "patch_outlet": "outlet",
+    "wall": "wall",
+    "mrf": "fan_mrf_zone",
+    "aluminum": "aluminum"
+  },
+  "cfdNamingContract": [[CFD_NAMING_CONTRACT_JSON]],
+  "parameters": [[PARAMETERS_JSON]]
+}
