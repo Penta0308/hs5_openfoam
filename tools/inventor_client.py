@@ -20,6 +20,19 @@ class InventorPaths:
     cfd: Path
 
 
+@dataclass(frozen=True)
+class ObjProfile:
+    body_name: str
+    filename: str
+
+
+OBJ_PROFILES = (
+    ObjProfile("master", "master.obj"),
+    ObjProfile("mrf", "mrf.obj"),
+    ObjProfile("master_1", "master_1.obj"),
+)
+
+
 PATCH_INLET = "patch_inlet"
 PATCH_HEAT_SOURCE = "patch_heatsource"
 PATCH_OUTLET_PATTERN = re.compile(r"^patch_outlet(?:_\d+)?$")
@@ -55,8 +68,9 @@ def connect_inventor(*, visible: bool) -> win32com.client.CDispatch:
         app = win32com.client.Dispatch(dispatch)
         #print(type(app))
         #app = cast(Any, app)
-    app.Visible = visible
-    return app
+    # This is a user-owned interactive session.  Attaching must not alter its
+    # visibility, irrespective of the legacy CLI flag.
+    return cast(win32com.client.CDispatch, app)
 
 
 def open_part(app: win32com.client.CDispatch, path: Path) -> Any:
@@ -220,7 +234,7 @@ def set_parameters(document: Any, values: dict[str, str]) -> None:
     document.Update()
 
 
-def export_obj(app: win32com.client.CDispatch, document: Any, output: Path) -> None:
+def export_obj(app: Any, document: Any, output: Path) -> None:
     output.parent.mkdir(parents=True, exist_ok=True)
     translator = app.ApplicationAddIns.ItemById(OBJ_TRANSLATOR_ID)
     context = app.TransientObjects.CreateTranslationContext()
@@ -230,6 +244,45 @@ def export_obj(app: win32com.client.CDispatch, document: Any, output: Path) -> N
     translator.HasSaveCopyAsOptions(document, context, options)
     data.FileName = str(output.resolve())
     translator.SaveCopyAs(document, context, options, data)
+
+
+def obj_profile_paths(output_directory: Path) -> tuple[Path, ...]:
+    return tuple(output_directory / profile.filename for profile in OBJ_PROFILES)
+
+
+def _required_surface_bodies(document: Any) -> dict[str, Any]:
+    bodies = document.ComponentDefinition.SurfaceBodies
+    found: dict[str, list[Any]] = {}
+    for index in range(1, bodies.Count + 1):
+        body = bodies.Item(index)
+        found.setdefault(str(body.Name), []).append(body)
+
+    required_names = {profile.body_name for profile in OBJ_PROFILES}
+    missing = sorted(required_names - found.keys())
+    duplicates = sorted(name for name, matches in found.items() if len(matches) > 1)
+    unexpected = sorted(set(found) - required_names)
+    if missing or duplicates or unexpected:
+        details: list[str] = []
+        if missing:
+            details.append(f"missing: {', '.join(missing)}")
+        if duplicates:
+            details.append(f"duplicate: {', '.join(duplicates)}")
+        if unexpected:
+            details.append(f"unexpected: {', '.join(unexpected)}")
+        raise RuntimeError(f"invalid SurfaceBodies for OBJ profile export ({'; '.join(details)})")
+    return {name: matches[0] for name, matches in found.items()}
+
+
+def export_obj_profiles(
+    app: Any, document: Any, output_directory: Path
+) -> tuple[Path, ...]:
+    bodies_by_name = _required_surface_bodies(document)
+    outputs = obj_profile_paths(output_directory)
+    for profile, output in zip(OBJ_PROFILES, outputs, strict=True):
+        for body_name, body in bodies_by_name.items():
+            body.Visible = body_name == profile.body_name
+        export_obj(app, document, output)
+    return outputs
 
 
 def collect_state(app: win32com.client.CDispatch, paths: InventorPaths) -> dict[str, Any]:

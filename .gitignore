@@ -126,3 +126,6 @@ dmypy.json
 cython_debug/
 .omo/
 OldVersions/
+.idea/deployment.xml
+hs5/
+openfoam/cases/

@@ -13,6 +13,7 @@ REGION_NAMES = (
     "patch_inlet",
     "patch_heatsource",
     "patch_outlet",
+    "patch_blade",
     "wall",
     "mrf",
     "aluminum",
@@ -21,6 +22,7 @@ KNOWN_COLOR_ROLES = {
     "0,92,255": "patch_inlet",
     "255,64,0": "patch_heatsource",
     "0,180,80": "patch_outlet",
+    "255,0,255": "patch_blade",
     "160,160,160": "wall",
     "191,191,191": "wall",
 }
@@ -41,7 +43,7 @@ class NormalizationResult:
 def normalize_obj_text(
     source_text: str,
     *,
-    source_obj: str = "constant/triSurface/hs5_cfd.obj",
+    source_obj: str = "constant/triSurface/master.obj",
     normalized_obj: str = "constant/triSurface/hs5_cfd.openfoam.obj",
 ) -> NormalizationResult:
     output: list[str] = []
@@ -64,7 +66,7 @@ def normalize_obj_text(
             if SOURCE_GROUPS.index(group) != expected_group_index:
                 raise NormalizationError(
                     f"line {line_number}: groups must occur once in order "
-                    "master -> mrf -> master_1"
+                    "master (or legacy master -> mrf -> master_1)"
                 )
             current_group = group
             expected_group_index += 1
@@ -87,11 +89,13 @@ def normalize_obj_text(
             unknown_counts[unknown_rgb] = unknown_counts.get(unknown_rgb, 0) + 1
         run = (run_number, region)
         if emitted_run != run:
-            output.append(f"g {region}\n")
+            output.append(f"g {region}{_line_ending(line)}")
             emitted_run = run
         output.append(line)
         counts[region] += 1
 
+    if expected_group_index not in (1, len(SOURCE_GROUPS)):
+        raise NormalizationError("groups must be master only or legacy master -> mrf -> master_1")
     unknown_colors = [
         {"rgb": rgb, "faceCount": unknown_counts[rgb], "mappedRole": "wall"}
         for rgb in sorted(unknown_counts)
@@ -117,12 +121,12 @@ def normalize_obj_file(
     normalized_path: Path | str,
     manifest_path: Path | str,
     *,
-    source_obj: str = "constant/triSurface/hs5_cfd.obj",
+    source_obj: str = "constant/triSurface/master.obj",
     normalized_obj: str = "constant/triSurface/hs5_cfd.openfoam.obj",
 ) -> NormalizationResult:
     source = Path(source_path)
     result = normalize_obj_text(
-        source.read_text(encoding="utf-8"),
+        source.read_bytes().decode("utf-8"),
         source_obj=source_obj,
         normalized_obj=normalized_obj,
     )
@@ -140,6 +144,16 @@ def _record(line: str) -> tuple[str, str]:
         return "", ""
     parts = body.split(None, 1)
     return parts[0], parts[1] if len(parts) == 2 else ""
+
+
+def _line_ending(line: str) -> str:
+    if line.endswith("\r\n"):
+        return "\r\n"
+    if line.endswith("\n"):
+        return "\n"
+    if line.endswith("\r"):
+        return "\r"
+    return "\n"
 
 
 def _one_token(value: str, line_number: int, noun: str) -> str:

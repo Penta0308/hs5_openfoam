@@ -24,7 +24,7 @@ def load_subject():
     setattr(inventor_client, "InventorPaths", Mock())
     setattr(inventor_client, "collect_state", Mock())
     setattr(inventor_client, "connect_inventor", Mock())
-    setattr(inventor_client, "export_obj", Mock())
+    setattr(inventor_client, "export_obj_profiles", Mock())
     setattr(inventor_client, "open_part", Mock())
     setattr(inventor_client, "write_text_atomic", Mock())
     template_render = types.ModuleType("template_render")
@@ -58,11 +58,25 @@ class PrepareOpenFoamCaseTests(unittest.TestCase):
     def test_prepare_case_exports_normalizes_then_renders_with_artifact_context(self) -> None:
         subject, _ = load_subject()
         calls: list[str] = []
-        state = {"cfd": {"parameters": {}}, "cfdNamingContract": {}}
+        state = {
+            "cfd": {
+                "parameters": {
+                    "OfanX": {"expression": "36 mm"},
+                    "OfanY": {"expression": "20 mm"},
+                    "OfanZ": {"expression": "4 mm"},
+                }
+            },
+            "cfdNamingContract": {},
+        }
 
-        def export_raw(_app, _document, destination: Path) -> None:
+        def export_profiles(_app, _document, destination: Path) -> tuple[Path, Path, Path]:
             calls.append("export")
-            destination.write_text(FIXTURE.read_text(encoding="utf-8"), encoding="utf-8")
+            destination.mkdir(parents=True, exist_ok=True)
+            master, mrf, aluminum = destination / "master.obj", destination / "mrf.obj", destination / "master_1.obj"
+            master.write_text("g master\nusemtl 0,92,255\nf 1 2 3\n", encoding="utf-8")
+            mrf.write_bytes(b"mrf profile bytes\n")
+            aluminum.write_bytes(b"aluminum profile bytes\n")
+            return master, mrf, aluminum
 
         def normalize_raw(*args, **kwargs):
             calls.append("normalize")
@@ -70,14 +84,17 @@ class PrepareOpenFoamCaseTests(unittest.TestCase):
 
         def render(_output: Path, context: dict[str, object]) -> None:
             calls.append("render")
-            self.assertEqual(context["RAW_CFD_OBJ"], "constant/triSurface/hs5_cfd.obj")
+            self.assertEqual(context["MASTER_PROFILE_OBJ"], "constant/triSurface/master.obj")
+            self.assertEqual(context["MRF_ZONE_OBJ"], "constant/geometry/mrf-zone.obj")
             self.assertEqual(context["NORMALIZED_CFD_OBJ"], "constant/triSurface/hs5_cfd.openfoam.obj")
             self.assertEqual(context["OBJ_REGION_MANIFEST"], "obj_region_manifest.json")
+            self.assertEqual(context["LOCATION_IN_MESH_M"], "(0.036 0.02 -0.001)")
+            self.assertEqual(context["FAN_ORIGIN_M"], "(0.036 0.02 0.004)")
 
         with self.enterContext(patch.object(subject, "connect_inventor", return_value=object())), \
              self.enterContext(patch.object(subject, "collect_state", return_value=state)), \
              self.enterContext(patch.object(subject, "open_part", return_value=object())), \
-             self.enterContext(patch.object(subject, "export_obj", side_effect=export_raw)), \
+              self.enterContext(patch.object(subject, "export_obj_profiles", side_effect=export_profiles)), \
              self.enterContext(patch.object(subject, "normalize_obj_file", side_effect=normalize_raw)), \
              self.enterContext(patch.object(subject, "render_templates", side_effect=render)), \
              self.enterContext(patch.object(subject, "copy_readme")), \
@@ -85,20 +102,47 @@ class PrepareOpenFoamCaseTests(unittest.TestCase):
             with tempfile.TemporaryDirectory() as directory:
                 output = Path(directory) / "case"
                 subject.prepare_case(Path("hs5_cfd.ipt"), output, visible=False, inventor_access_confirmed=True)
-                self.assertTrue((output / "constant" / "triSurface" / "hs5_cfd.obj").exists())
+                self.assertTrue((output / "constant" / "triSurface" / "master.obj").exists())
+                self.assertTrue((output / "constant" / "triSurface" / "mrf.obj").exists())
+                self.assertTrue((output / "constant" / "triSurface" / "master_1.obj").exists())
                 self.assertTrue((output / "constant" / "triSurface" / "hs5_cfd.openfoam.obj").exists())
                 self.assertTrue((output / "obj_region_manifest.json").exists())
 
         self.assertEqual(calls, ["export", "normalize", "render"])
+
+    def test_render_context_derives_location_from_saved_parameters(self) -> None:
+        subject, _ = load_subject()
+        state = {
+            "cfd": {"parameters": {"OfanX": {"expression": "36.000 mm"}, "OfanY": {"expression": "20.000 mm"}, "OfanZ": {"expression": "4.000 mm"}}},
+            "cfdNamingContract": {},
+        }
+
+        context = subject.render_context(Path("historical.ipt"), Path("case"), state, "static")
+
+        self.assertEqual(context["LOCATION_IN_MESH_M"], "(0.036 0.02 -0.001)")
+        self.assertEqual(context["FAN_ORIGIN_M"], "(0.036 0.02 0.004)")
+
+    def test_render_context_rejects_nonliteral_location_without_inventor_access(self) -> None:
+        subject, _ = load_subject()
+        state = {
+            "cfd": {"parameters": {"OfanX": {"expression": "d4"}, "OfanY": {"expression": "20 mm"}}},
+            "cfdNamingContract": {},
+        }
+
+        with self.assertRaisesRegex(ValueError, "millimetre literal"):
+            subject.render_context(Path("historical.ipt"), Path("case"), state, "static")
 
     def test_normalizer_failure_prevents_rendering(self) -> None:
         subject, _ = load_subject()
         calls: list[str] = []
         state = {"cfd": {"parameters": {}}, "cfdNamingContract": {}}
 
-        def export_raw(_app, _document, destination: Path) -> None:
+        def export_profiles(_app, _document, destination: Path) -> tuple[Path, Path, Path]:
             calls.append("export")
-            destination.write_text("g master\nf 1 2 3\n", encoding="utf-8")
+            destination.mkdir(parents=True, exist_ok=True)
+            master = destination / "master.obj"
+            master.write_text("g master\nf 1 2 3\n", encoding="utf-8")
+            return master, destination / "mrf.obj", destination / "master_1.obj"
 
         def fail_normalization(*_args, **_kwargs) -> None:
             calls.append("normalize")
@@ -107,7 +151,7 @@ class PrepareOpenFoamCaseTests(unittest.TestCase):
         with self.enterContext(patch.object(subject, "connect_inventor", return_value=object())), \
              self.enterContext(patch.object(subject, "collect_state", return_value=state)), \
              self.enterContext(patch.object(subject, "open_part", return_value=object())), \
-             self.enterContext(patch.object(subject, "export_obj", side_effect=export_raw)), \
+              self.enterContext(patch.object(subject, "export_obj_profiles", side_effect=export_profiles)), \
              self.enterContext(patch.object(subject, "normalize_obj_file", side_effect=fail_normalization)), \
              self.enterContext(patch.object(subject, "render_templates")) as render, \
              self.enterContext(patch.object(subject, "copy_readme")) as copy_readme, \
@@ -120,6 +164,14 @@ class PrepareOpenFoamCaseTests(unittest.TestCase):
         render.assert_not_called()
         copy_readme.assert_not_called()
         write_state.assert_not_called()
+
+    def test_prepare_case_rejects_non_repository_cfd_before_com_initialization(self) -> None:
+        subject, pythoncom = load_subject()
+
+        with self.assertRaisesRegex(RuntimeError, "only repository CFD file"):
+            subject.prepare_case(Path("other.ipt"), Path("unused"), visible=False, inventor_access_confirmed=True)
+
+        pythoncom.CoInitialize.assert_not_called()
 
     def test_main_forwards_cli_acknowledgement_to_prepare_case(self) -> None:
         subject, _ = load_subject()

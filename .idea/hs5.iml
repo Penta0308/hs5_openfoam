@@ -4,6 +4,8 @@
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/.omo" />
       <excludeFolder url="file://$MODULE_DIR$/OldVersions" />
+      <excludeFolder url="file://$MODULE_DIR$/hs5" />
+      <excludeFolder url="file://$MODULE_DIR$/openfoam/cases" />
     </content>
     <orderEntry type="jdk" jdkName="Python 3.14 (hs5)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />

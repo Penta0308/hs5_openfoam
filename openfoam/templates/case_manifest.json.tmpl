@@ -10,13 +10,18 @@
   },
   "geometry": {
     "cfdObj": "constant/triSurface/hs5_cfd.openfoam.obj",
-    "rawCfdObj": "constant/triSurface/hs5_cfd.obj",
+    "masterProfileObj": "constant/triSurface/master.obj",
+    "mrfProfileObj": "constant/triSurface/mrf.obj",
+    "aluminumProfileObj": "constant/triSurface/master_1.obj",
+    "mrfZoneObj": "constant/geometry/mrf-zone.obj",
+    "aluminumZoneObj": "constant/geometry/aluminum-zone.obj",
     "objRegionManifest": "obj_region_manifest.json"
   },
   "openfoamRegions": {
     "patch_inlet": "inlet",
     "patch_heatsource": "heat_source",
     "patch_outlet": "outlet",
+    "patch_blade": "blade_cavity_wall",
     "wall": "wall",
     "mrf": "fan_mrf_zone",
     "aluminum": "aluminum"

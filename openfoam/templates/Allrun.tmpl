@@ -1,15 +1,26 @@
 #!/usr/bin/env bash
-set -euo pipefail
 
 source /opt/openfoam14/etc/bashrc
+set -euo pipefail
 
-# OpenFOAM.org v14 reads patch regions from the OBJ `g` field only.
-# It ignores OBJ `usemtl` and MTL files entirely, so this script
-# surface-checks only the normalized single OBJ that contains `g`-encoded
-# patches/zones. No raw OBJ or MTL is used as input here.
-surfaceCheck constant/triSurface/hs5_cfd.openfoam.obj | tee log.surfaceCheck.hs5_cfd
+CASE_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+cd "$CASE_DIR"
 
-# Meshing/region split is intentionally geometry-driven and will be completed
-# from hs5_cfd.ipt only. This script verifies that Inventor export and
-# OpenFOAM v14 tooling are wired correctly. OBJ is used so material/color
-# assignments can be post-processed into OpenFOAM patch surfaces.
+python3 "$CASE_DIR/tools/verify_location_in_mesh.py" --obj "$CASE_DIR/constant/triSurface/hs5_cfd.openfoam.obj" --exclude-closed-surface "$CASE_DIR/constant/geometry/aluminum-zone.obj" --point "[[LOCATION_IN_MESH_M]]"
+
+surfaceCheck "$CASE_DIR/constant/triSurface/hs5_cfd.openfoam.obj" | tee log.surfaceCheck.hs5_cfd
+surfaceCheck "$CASE_DIR/constant/geometry/mrf-zone.obj" | tee log.surfaceCheck.mrf-zone
+surfaceCheck "$CASE_DIR/constant/geometry/aluminum-zone.obj" | tee log.surfaceCheck.aluminum-zone
+python3 "$CASE_DIR/tools/verify_mesh_contract.py" --surface-check log.surfaceCheck.mrf-zone --require-closed mrf-zone
+python3 "$CASE_DIR/tools/verify_mesh_contract.py" --surface-check log.surfaceCheck.aluminum-zone --require-closed aluminum-zone
+
+blockMesh | tee log.blockMesh
+snappyHexMesh -overwrite | tee log.snappyHexMesh
+checkMesh -allTopology -allGeometry | tee log.checkMesh
+python3 "$CASE_DIR/tools/verify_mesh_contract.py" --check-mesh log.checkMesh
+createZones | tee log.createZones
+python3 "$CASE_DIR/tools/verify_mesh_contract.py" --pre-split --boundary constant/polyMesh/boundary --cell-zones constant/polyMesh/cellZones
+splitMeshRegions -cellZones aluminum -defaultRegion fluid | tee log.splitMeshRegions
+checkMesh -region fluid -allTopology -allGeometry | tee log.checkMesh.fluid
+checkMesh -region aluminum -allTopology -allGeometry | tee log.checkMesh.aluminum
+python3 "$CASE_DIR/tools/verify_mesh_contract.py" --post-split --fluid-boundary constant/fluid/polyMesh/boundary --fluid-cell-zones constant/fluid/polyMesh/cellZones --aluminum-boundary constant/aluminum/polyMesh/boundary
