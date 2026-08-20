@@ -1,0 +1,27 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| OpenFOAM: The Open Source CFD Toolbox                                   |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    format      ascii;
+    class       dictionary;
+    object      createZonesDict;
+}
+
+mrf
+{
+    type        insideSurface;
+    zoneType    cell;
+    surface     closedTriSurface;
+    file        "mrf-zone.obj";
+    scale       0.001;
+}
+
+aluminum
+{
+    type        insideSurface;
+    zoneType    cell;
+    surface     closedTriSurface;
+    file        "aluminum-zone.obj";
+    scale       0.001;
+}

@@ -1,0 +1,114 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| OpenFOAM: The Open Source CFD Toolbox                                   |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    format      ascii;
+    class       dictionary;
+    object      snappyHexMeshDict;
+}
+
+castellatedMesh true;
+snap            true;
+addLayers       false;
+
+geometry
+{
+    hs5_cfd
+    {
+        type    triSurface;
+        file    "hs5_cfd.openfoam.obj";
+        scale   0.001;
+        regions
+        {
+            patch_inlet
+            {
+                name patch_inlet;
+                patchInfo { type patch; }
+            }
+            patch_heatsource
+            {
+                name patch_heatsource;
+                patchInfo { type wall; }
+            }
+            patch_outlet
+            {
+                name patch_outlet;
+                patchInfo { type patch; }
+            }
+            patch_blade
+            {
+                name patch_blade;
+                patchInfo { type wall; }
+            }
+            wall
+            {
+                name wall;
+                patchInfo { type wall; }
+            }
+        }
+    }
+}
+
+castellatedMeshControls
+{
+    maxLocalCells  500000;
+    maxGlobalCells 2000000;
+    minRefinementCells 0;
+    nCellsBetweenLevels 2;
+
+    features
+    (
+    );
+
+    refinementSurfaces
+    {
+        hs5_cfd
+        {
+            // Base 0.4 mm cells: level 1 gives the 0.2 mm bulk surface intent.
+            level (1 1);
+            regions
+            {
+                patch_inlet      { level (1 1); }
+                patch_heatsource { level (1 1); }
+                patch_outlet     { level (1 1); }
+                patch_blade      { level (1 1); }
+                wall             { level (1 1); }
+            }
+        }
+    }
+
+    resolveFeatureAngle 30;
+    refinementRegions
+    {
+    }
+
+    locationInMesh [[LOCATION_IN_MESH_M]];
+    allowFreeStandingZoneFaces false;
+}
+
+snapControls
+{
+    nSmoothPatch 3;
+    tolerance 1.0;
+    nSolveIter 30;
+    nRelaxIter 5;
+}
+
+meshQualityControls
+{
+    maxNonOrtho 65;
+    maxBoundarySkewness 20;
+    maxInternalSkewness 4;
+    maxConcave 80;
+    minVol 1e-15;
+    minTetQuality 1e-15;
+    minTwist 0.02;
+    minDeterminant 0.001;
+    minFaceWeight 0.05;
+    minVolRatio 0.01;
+    nSmoothScale 4;
+    errorReduction 0.75;
+}
+
+mergeTolerance 1e-6;

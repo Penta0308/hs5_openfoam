@@ -1,0 +1,11 @@
+FoamFile { format ascii; class volScalarField; object alphat; }
+dimensions [1 -1 -1 0 0 0 0];
+internalField uniform 0;
+boundaryField
+{
+    patch_inlet { type calculated; value uniform 0; }
+    patch_outlet { type calculated; value uniform 0; }
+    patch_blade { type compressible::alphatWallFunction; Prt 0.85; value uniform 0; }
+    wall { type compressible::alphatWallFunction; Prt 0.85; value uniform 0; }
+    fluid_to_aluminum { type calculated; value uniform 0; }
+}

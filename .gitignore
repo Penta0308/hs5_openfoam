@@ -129,3 +129,4 @@ OldVersions/
 .idea/deployment.xml
 hs5/
 openfoam/cases/
+openfoam/results/

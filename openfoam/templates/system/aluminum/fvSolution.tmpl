@@ -1,0 +1,17 @@
+FoamFile { format ascii; class dictionary; object fvSolution; }
+solvers
+{
+    "(e|h|T)" { solver GAMG; tolerance 1e-8; relTol 0.05; smoother GaussSeidel; }
+    eFinal { $e; relTol 0; }
+}
+PIMPLE
+{
+    nOuterCorrectors 2;
+    nCorrectors 2;
+    nNonOrthogonalCorrectors 1;
+    residualControl
+    {
+        e 1e-6;
+    }
+}
+relaxationFactors { equations { "(e|h|T)" 0.7; } }

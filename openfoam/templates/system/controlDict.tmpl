@@ -1,0 +1,31 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| OpenFOAM: The Open Source CFD Toolbox                                   |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    format      ascii;
+    class       dictionary;
+    object      controlDict;
+}
+
+application     foamMultiRun;
+
+regionSolvers
+{
+    fluid       fluid;
+    aluminum    solid;
+}
+
+startFrom       latestTime;
+startTime       0;
+stopAt          endTime;
+// Bounded steady pseudo-time run; reruns resume from the latest output.
+endTime         40;
+deltaT          1;
+
+adjustTimeStep  no;
+
+writeControl    timeStep;
+writeInterval   50;
+writeFormat     ascii;
+writePrecision  12;

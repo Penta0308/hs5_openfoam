@@ -1,0 +1,8 @@
+FoamFile { format ascii; class dictionary; object fvSolution; }
+solvers
+{
+    p { solver GAMG; tolerance 1e-7; relTol 0.05; smoother GaussSeidel; }
+    rho { solver GAMG; tolerance 1e-7; relTol 0.05; smoother GaussSeidel; }
+    "(U|k|omega|h|T)" { solver smoothSolver; smoother symGaussSeidel; tolerance 1e-7; relTol 0.05; }
+}
+PIMPLE { nOuterCorrectors 2; nCorrectors 2; nNonOrthogonalCorrectors 1; }

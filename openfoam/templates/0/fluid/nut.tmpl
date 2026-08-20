@@ -1,0 +1,11 @@
+FoamFile { format ascii; class volScalarField; object nut; }
+dimensions [0 2 -1 0 0 0 0];
+internalField uniform 0;
+boundaryField
+{
+    patch_inlet { type calculated; value uniform 0; }
+    patch_outlet { type calculated; value uniform 0; }
+    patch_blade { type nutkWallFunction; value uniform 0; }
+    wall { type nutkWallFunction; value uniform 0; }
+    fluid_to_aluminum { type calculated; value uniform 0; }
+}

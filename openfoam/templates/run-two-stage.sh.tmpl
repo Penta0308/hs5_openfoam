@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+source /opt/openfoam14/etc/bashrc
+set -euo pipefail
+
+CASE_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+exec python3 "$CASE_DIR/tools/run_two_stage_cfd.py" --case "$CASE_DIR" "$@"

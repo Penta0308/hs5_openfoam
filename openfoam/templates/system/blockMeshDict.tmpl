@@ -1,0 +1,44 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| OpenFOAM: The Open Source CFD Toolbox                                   |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    format      ascii;
+    class       dictionary;
+    object      blockMeshDict;
+}
+
+// OBJ coordinates are millimetres.  The 0.4 mm numerical padding is retained
+// here; convertToMeters converts this background mesh to OpenFOAM metres.
+convertToMeters 0.001;
+
+vertices
+(
+    (-0.4      -0.4      -8.4)
+    (51.460863 -0.4      -8.4)
+    (51.460863 39.400001 -8.4)
+    (-0.4      39.400001 -8.4)
+    (-0.4      -0.4       4.4)
+    (51.460863 -0.4       4.4)
+    (51.460863 39.400001  4.4)
+    (-0.4      39.400001  4.4)
+);
+
+blocks
+(
+    hex (0 1 2 3 4 5 6 7) (130 100 32) simpleGrading (1 1 1)
+);
+
+edges
+(
+);
+
+boundary
+(
+    xmin { type wall; faces ((0 4 7 3)); }
+    xmax { type wall; faces ((1 2 6 5)); }
+    ymin { type wall; faces ((0 1 5 4)); }
+    ymax { type wall; faces ((3 7 6 2)); }
+    zmin { type wall; faces ((0 3 2 1)); }
+    zmax { type wall; faces ((4 5 6 7)); }
+);

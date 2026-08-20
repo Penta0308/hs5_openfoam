@@ -1,0 +1,19 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    format      ascii;
+    class       dictionary;
+    object      MRFProperties;
+}
+
+MRF
+{
+    cellZone            mrf;
+    active              yes;
+    nonRotatingPatches  ();
+    origin              [[FAN_ORIGIN_M]];
+    axis                (0 0 1);
+    // 12000 RPM = 400*pi rad/s, positive about the saved +Z axis.
+    omega               1256.63706144;
+}

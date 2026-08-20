@@ -1,0 +1,28 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| OpenFOAM: The Open Source CFD Toolbox                                   |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    format      ascii;
+    class       dictionary;
+    object      physicalProperties;
+}
+
+thermoType
+{
+    type            heRhoThermo;
+    mixture         pureMixture;
+    transport       const;
+    thermo          hConst;
+    equationOfState rhoConst;
+    specie          specie;
+    energy          sensibleEnthalpy;
+}
+
+mixture
+{
+    specie { molWeight 28.96; }
+    thermodynamics { Cp 1005; Hf 0; }
+    transport { mu 1.81e-05; Pr 0.71; }
+    equationOfState { rho 1.204; }
+}

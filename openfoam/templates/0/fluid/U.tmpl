@@ -1,0 +1,11 @@
+FoamFile { format ascii; class volVectorField; object U; }
+dimensions      [0 1 -1 0 0 0 0];
+internalField   uniform (0 0 0);
+boundaryField
+{
+    patch_inlet  { type pressureInletOutletVelocity; value uniform (0 0 0); }
+    patch_outlet { type pressureInletOutletVelocity; value uniform (0 0 0); }
+    patch_blade  { type MRFnoSlip; MRFZoneName MRF; value uniform (0 0 0); }
+    wall         { type noSlip; }
+    fluid_to_aluminum { type fixedValue; value uniform (0 0 0); }
+}
