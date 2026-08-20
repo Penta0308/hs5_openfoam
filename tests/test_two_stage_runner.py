@@ -26,15 +26,13 @@ def patch(name: str, values: str) -> str:
 
 
 class TwoStageRunnerTests(unittest.TestCase):
-    def test_flow_entrypoint_restores_cht_system_files_after_flow(self) -> None:
+    def test_flow_entrypoint_uses_isolated_flow_subcase(self) -> None:
         entrypoint = (ROOT / "openfoam" / "templates" / "Allrun.flow.tmpl").read_text(encoding="utf-8")
 
-        self.assertIn('install -m 0644 "$CASE_DIR/system/controlDict" "$BACKUP_DIR/controlDict"', entrypoint)
-        self.assertIn('install -m 0644 "$CASE_DIR/system/fluid/fvSolution" "$BACKUP_DIR/fvSolution"', entrypoint)
-        self.assertIn('install -m 0644 "$BACKUP_DIR/controlDict" "$CASE_DIR/system/controlDict"', entrypoint)
-        self.assertIn('install -m 0644 "$BACKUP_DIR/fvSolution" "$CASE_DIR/system/fluid/fvSolution"', entrypoint)
-        self.assertIn("trap restore_cht EXIT", entrypoint)
-        self.assertLess(entrypoint.index("trap restore_cht EXIT"), entrypoint.index("python3 \"$CASE_DIR/tools/flow_runner.py\" log.flow"))
+        self.assertIn('FLOW_DIR="$CASE_DIR/flow"', entrypoint)
+        self.assertIn('foamRun -case "$FLOW_DIR" -solver incompressibleFluid', entrypoint)
+        self.assertNotIn("BACKUP_DIR=", entrypoint)
+        self.assertNotIn('"$CASE_DIR/system/controlDict"', entrypoint)
 
     def test_help_has_no_case_side_effects(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
