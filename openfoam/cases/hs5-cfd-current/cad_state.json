@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-11T14:28:51.651170+00:00",
+  "generatedAt": "2026-08-18T06:32:33.145449+00:00",
   "cfd": {
     "displayName": "hs5_cfd.ipt",
     "path": "C:\\Users\\penta\\Documents\\a5100\\hs5\\hs5_cfd.ipt",
@@ -75,18 +75,22 @@
       "d6": {
         "expression": "OfanZ - 0.4 mm",
         "units": "mm"
+      },
+      "d7": {
+        "expression": "0.2 mm",
+        "units": "mm"
       }
     },
     "bodies": [
       {
         "name": "master",
         "role": "cfd_domain",
-        "visible": true
+        "visible": false
       },
       {
         "name": "mrf",
         "role": "fan_mrf_zone",
-        "visible": true
+        "visible": false
       },
       {
         "name": "master_1",
@@ -101,7 +105,3180 @@
           "name": "master",
           "attributes": [],
           "namedFaces": [],
-          "facesWithAttributes": []
+          "facesWithAttributes": [
+            {
+              "index": 1,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 2,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 3,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 4,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 5,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 6,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 7,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 8,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 9,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 10,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 11,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 12,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 13,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 14,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 15,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 16,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 17,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 18,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 19,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 20,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 21,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 22,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 23,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 24,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 25,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 26,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 27,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 28,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 29,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 30,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 31,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 32,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 33,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 34,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 35,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 36,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 37,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 38,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 39,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 40,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 41,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 42,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 43,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 44,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 45,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 46,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 47,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 48,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 49,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 50,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 51,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 52,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 53,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 54,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 55,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 56,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 57,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 58,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 59,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 60,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 61,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 62,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 63,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 64,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 65,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 66,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 67,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 68,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 69,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 70,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 71,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 72,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 73,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 74,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 75,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 76,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 77,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 78,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 79,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 80,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 81,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 82,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 83,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 84,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 85,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 86,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 87,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 88,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 89,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 90,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 91,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 92,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 93,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 94,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 95,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 96,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 97,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 98,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 99,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 100,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 101,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 102,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 103,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 104,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 105,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 106,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 107,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 108,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 109,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 110,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 111,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 112,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 113,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 114,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 115,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 116,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 117,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 118,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 119,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 120,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 121,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 122,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 123,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 124,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 125,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 126,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 127,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 128,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 129,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 130,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 131,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 132,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 133,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 134,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 135,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 136,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 137,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 138,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 139,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 140,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 141,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 142,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 143,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 144,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 145,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 146,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 147,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 148,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 149,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 150,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 151,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 152,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 153,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 154,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 155,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 156,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 157,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 158,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 159,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 160,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 161,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 162,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 163,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 164,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 165,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 166,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 167,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 168,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 169,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 170,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 171,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 172,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 173,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 174,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 175,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 176,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 177,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 178,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 179,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 180,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 181,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 182,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 183,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 184,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 185,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 186,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 187,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 188,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 189,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 190,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 191,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 192,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 193,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 194,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 195,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 196,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 197,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 198,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 199,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 200,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 201,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 202,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 203,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 204,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 205,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 206,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 207,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 208,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 209,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 210,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 211,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 212,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 213,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 214,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 215,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 216,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 217,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 218,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 219,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 220,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 221,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 222,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 223,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 224,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 225,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 226,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 227,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 228,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 229,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 230,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 231,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 232,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 233,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 234,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 235,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 236,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 237,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 238,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 239,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 240,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 241,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 242,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 243,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            },
+            {
+              "index": 244,
+              "name": null,
+              "attributes": [
+                {
+                  "name": "com.autodesk.inventor.FaceAttributes",
+                  "attributes": {
+                    "FaceColor": "patch_blade",
+                    "Owner_Feature_ID": "201"
+                  }
+                }
+              ]
+            }
+          ]
         },
         {
           "name": "mrf",

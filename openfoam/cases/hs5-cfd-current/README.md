@@ -4,7 +4,7 @@ Generated only from `hs5_cfd.ipt`.
 
 ## Raw vs Normalized Surface
 
-The raw export provenance is `constant/triSurface/hs5_cfd.obj`, produced by Inventor COM export. It is **not** used as OpenFOAM input. The normalized single OBJ, `constant/triSurface/hs5_cfd.openfoam.obj`, is the only surface consumed by OpenFOAM v14. It is derived from the raw OBJ by replacing RGB-valued material runs with `g` region names.
+The canonical profile exports are `constant/triSurface/master.obj`, `mrf.obj`, and `master_1.obj`. The latter two are copied byte-for-byte to `constant/geometry/mrf-zone.obj` and `aluminum-zone.obj` for createZones. Only the normalized master OBJ, `constant/triSurface/hs5_cfd.openfoam.obj`, is consumed by snappyHexMesh. It is derived from `master.obj` by replacing RGB-valued material runs with `g` region names.
 
 ## Color-Based Region Classification
 
@@ -13,10 +13,13 @@ The normalizer maps RGB colors from the raw OBJ's `usemtl` names into OpenFOAM `
   - `(0,92,255)` blue     -> `patch_inlet` (inlet)
   - `(255,64,0)` red-orange -> `patch_heatsource` (heat_source)
   - `(0,180,80)` green    -> `patch_outlet` (outlet)
+  - `(255,0,255)` magenta  -> `patch_blade` (blade_cavity_wall)
   - `(160,160,160)` / `(191,191,191)` gray -> `wall`
-  - `mrf` group           -> `mrf` (fan_mrf_zone)
-  - `master_1` group       -> `aluminum`
 
 OpenFOAM.org v14 reads patch regions from the OBJ `g` field only and ignores `usemtl`/MTL. The classification manifest is recorded as `obj_region_manifest.json`.
+
+## CHT smoke boundary
+
+The rendered `chtMultiRegionFoam` control dictionary is deliberately a bounded smoke setup, not mesh acceptance. Regional checkMesh evidence still includes 42 small-determinant cells and concavity findings; it is not suppressed or relaxed by the CHT templates.
 
 Run `bash Allrun` on the remote host after sourcing OpenFOAM v14 or let the script source it.

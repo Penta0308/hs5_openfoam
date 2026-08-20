@@ -1,19 +1,21 @@
 {
   "schemaVersion": 1,
-  "sourceObj": "constant/triSurface/hs5_cfd.obj",
+  "sourceObj": "constant/triSurface/master.obj",
   "normalizedObj": "constant/triSurface/hs5_cfd.openfoam.obj",
   "regionFaceCounts": {
     "patch_inlet": 33,
     "patch_heatsource": 2,
     "patch_outlet": 4,
-    "wall": 2689,
-    "mrf": 232,
-    "aluminum": 610
+    "patch_blade": 2412,
+    "wall": 1499,
+    "mrf": 0,
+    "aluminum": 0
   },
   "knownColorRoles": {
     "0,92,255": "patch_inlet",
     "255,64,0": "patch_heatsource",
     "0,180,80": "patch_outlet",
+    "255,0,255": "patch_blade",
     "160,160,160": "wall",
     "191,191,191": "wall"
   },

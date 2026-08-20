@@ -1,6 +1,6 @@
 {
   "caseId": "hs5-cfd-current",
-  "generatedAt": "2026-08-11T14:28:58.218241+00:00",
+  "generatedAt": "2026-08-18T06:33:49.380205+00:00",
   "openfoam": {
     "version": "14",
     "bashrc": "/opt/openfoam14/etc/bashrc"
@@ -10,13 +10,18 @@
   },
   "geometry": {
     "cfdObj": "constant/triSurface/hs5_cfd.openfoam.obj",
-    "rawCfdObj": "constant/triSurface/hs5_cfd.obj",
+    "masterProfileObj": "constant/triSurface/master.obj",
+    "mrfProfileObj": "constant/triSurface/mrf.obj",
+    "aluminumProfileObj": "constant/triSurface/master_1.obj",
+    "mrfZoneObj": "constant/geometry/mrf-zone.obj",
+    "aluminumZoneObj": "constant/geometry/aluminum-zone.obj",
     "objRegionManifest": "obj_region_manifest.json"
   },
   "openfoamRegions": {
     "patch_inlet": "inlet",
     "patch_heatsource": "heat_source",
     "patch_outlet": "outlet",
+    "patch_blade": "blade_cavity_wall",
     "wall": "wall",
     "mrf": "fan_mrf_zone",
     "aluminum": "aluminum"
@@ -112,6 +117,10 @@
   },
   "d6": {
     "expression": "OfanZ - 0.4 mm",
+    "units": "mm"
+  },
+  "d7": {
+    "expression": "0.2 mm",
     "units": "mm"
   }
 }
