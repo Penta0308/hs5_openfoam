@@ -25,3 +25,12 @@ aluminum
     file        "aluminum-zone.obj";
     scale       0.001;
 }
+
+inletFilter
+{
+    type        nearPatchCells;
+    zoneType    cell;
+    patches     (patch_inlet);
+    distance    0.001;
+    inside      true;
+}

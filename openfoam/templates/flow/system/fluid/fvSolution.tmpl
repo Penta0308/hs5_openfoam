@@ -8,10 +8,8 @@ solvers
     kFinal { $k; relTol 0; }
     omegaFinal { $omega; relTol 0; }
 }
-PIMPLE
+SIMPLE
 {
-    nOuterCorrectors 3;
-    nCorrectors 3;
     nNonOrthogonalCorrectors 1;
     residualControl
     {
