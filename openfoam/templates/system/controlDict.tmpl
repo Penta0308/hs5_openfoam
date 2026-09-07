@@ -20,12 +20,12 @@ startFrom       latestTime;
 startTime       0;
 stopAt          endTime;
 // Bounded steady pseudo-time run; reruns resume from the latest output.
-endTime         40;
+endTime         1000;
 deltaT          1;
 
 adjustTimeStep  no;
 
 writeControl    timeStep;
-writeInterval   50;
+writeInterval   100;
 writeFormat     ascii;
 writePrecision  12;

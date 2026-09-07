@@ -15,11 +15,16 @@ CASE_TOOLS = (
     "verify_location_in_mesh.py",
     "verify_mesh_contract.py",
     "flow_runner.py",
+    "live_cfd_monitor.py",
     "result_metrics.py",
     "run_two_stage_cfd.py",
+    "fixed_phi_thermal.py",
 )
 NORMALIZED_SURFACE = Path("constant/triSurface/hs5_cfd.openfoam.obj")
 V14_GEOMETRY_SURFACE = Path("constant/geometry/hs5_cfd.openfoam.obj")
+SOLVER_TOOL_DIRS = (
+    "fixed_phi_thermal_solver",
+)
 PROFILE_HELPER_SURFACES = (
     (Path("constant/triSurface/mrf.obj"), Path("constant/geometry/mrf-zone.obj")),
     (Path("constant/triSurface/master_1.obj"), Path("constant/geometry/aluminum-zone.obj")),
@@ -35,6 +40,7 @@ def render_case_files(output: Path | str, context: dict[str, object], template_d
         with destination.open("w", encoding="utf-8", newline="\n") as rendered_file:
             rendered_file.write(render_text(template.read_text(encoding="utf-8"), context))
     copy_case_tools(output_path)
+    copy_solver_tool_dirs(output_path)
     stage_v14_tri_surface(output_path)
     stage_profile_helpers(output_path)
 
@@ -44,6 +50,16 @@ def copy_case_tools(output: Path | str, tools_dir: Path | str = ROOT / "tools") 
     destination_dir.mkdir(parents=True, exist_ok=True)
     for name in CASE_TOOLS:
         shutil.copyfile(Path(tools_dir) / name, destination_dir / name)
+
+
+def copy_solver_tool_dirs(output: Path | str, tools_dir: Path | str = ROOT / "tools") -> None:
+    destination_dir = Path(output) / "tools"
+    for name in SOLVER_TOOL_DIRS:
+        source = Path(tools_dir) / name
+        destination = destination_dir / name
+        if destination.exists():
+            shutil.rmtree(destination)
+        shutil.copytree(source, destination)
 
 
 def stage_v14_tri_surface(output: Path | str) -> None:

@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+import os
 import re
 import shutil
 import subprocess
@@ -19,7 +20,7 @@ except ImportError:
     from result_metrics import extract_metrics, make_result, write_result
 
 
-FLOW_FIELDS = ("U", "p", "k", "omega", "nut")
+FLOW_FIELDS = ("U",)
 _NUMBER = r"[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?"
 _THERMAL_RESIDUAL = re.compile(
     rf"Solving for\s+(h|e)\s*,.*?Final residual\s*=\s*({_NUMBER})"
@@ -44,11 +45,7 @@ CommandRunner = Callable[[tuple[str, ...], Path], int]
 def parse_thermal_log(log_text: str) -> ThermalConvergence:
     residuals = {field: float(value) for field, value in _THERMAL_RESIDUAL.findall(log_text)}
     solver_reported_convergence = _CONVERGED.search(log_text) is not None
-    converged = (
-        solver_reported_convergence
-        and residuals.get("h", float("inf")) <= 1e-5
-        and residuals.get("e", float("inf")) <= 1e-6
-    )
+    converged = residuals.get("h", float("inf")) <= 1e-5 and residuals.get("e", float("inf")) <= 1e-6
     return ThermalConvergence(residuals, solver_reported_convergence, converged)
 
 
@@ -104,10 +101,30 @@ def copy_flow_fields(case_dir: Path, time_dir: Path):
 
 
 def _run(command: Sequence[str], case_dir: Path) -> int:
-    if tuple(command) == ("foamMultiRun",):
-        with (case_dir / "log.thermal").open("w", encoding="utf-8") as log:
-            return subprocess.run(command, cwd=case_dir, check=False, stdout=log, stderr=subprocess.STDOUT).returncode
     return subprocess.run(command, cwd=case_dir, check=False).returncode
+
+
+def build_fixed_phi_solver(case: Path, run_command: CommandRunner) -> int:
+    solver = shutil.which("fixedPhiThermalFoam")
+    if solver:
+        return 0
+    source = case / "tools" / "fixed_phi_thermal_solver"
+    if not source.is_dir():
+        return 1
+    return run_command(("bash", "-lc", f"source /opt/openfoam14/etc/bashrc && cd {source} && wmake"), case)
+
+
+def run_fixed_phi_thermal(case: Path, flow_time: Path, run_command: CommandRunner) -> int:
+    script = case / "tools" / "fixed_phi_thermal.py"
+    flow_subcase_time = case / "flow" / flow_time.name
+    return run_command(
+        (
+            "bash",
+            "-lc",
+            f"source /opt/openfoam14/etc/bashrc && python3 {script} --case {case} --flow-time {flow_subcase_time}",
+        ),
+        case,
+    )
 
 
 def _read_log(path: Path) -> str:
@@ -138,7 +155,7 @@ def run_two_stage(
     except OSError:
         write_result(result_path, make_result(False, False, {}))
         return 1
-    flow = parse_flow_log(_read_log(case / "log.flow"))
+    flow = parse_flow_log(_read_log(case / "log.flow"), case / "flow")
     if not flow.converged:
         write_result(result_path, make_result(False, False, {}))
         return 1
@@ -148,18 +165,20 @@ def run_two_stage(
     except RuntimeError:
         write_result(result_path, make_result(True, False, {}))
         return 1
-    with copy_flow_fields(case, flow_time):
-        try:
-            thermal_status = run_command(("foamMultiRun",), case)
-        except OSError:
-            thermal_status = 1
-        if thermal_status != 0:
-            write_result(result_path, make_result(True, False, {}))
-            return 1
-        thermal = parse_thermal_log(_read_log(case / "log.thermal"))
-        result = make_result(True, thermal.converged, extract_metrics(case, numeric_times(case)[-1].name))
-        write_result(result_path, result)
-        return 0 if thermal.converged and result["status"] == "success" else 1
+    if build_fixed_phi_solver(case, run_command) != 0:
+        write_result(result_path, make_result(True, False, {}))
+        return 1
+    try:
+        thermal_status = run_fixed_phi_thermal(case, flow_time, run_command)
+    except OSError:
+        thermal_status = 1
+    if thermal_status != 0:
+        write_result(result_path, make_result(True, False, {}))
+        return 1
+    thermal = parse_thermal_log(_read_log(case / "log.fixedPhiThermal"))
+    result = make_result(True, thermal.converged, extract_metrics(case, numeric_times(case)[-1].name))
+    write_result(result_path, result)
+    return 0 if thermal.converged and result["status"] == "success" else 1
 
 
 def main() -> None:

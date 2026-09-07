@@ -6,7 +6,7 @@ set -euo pipefail
 CASE_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 cd "$CASE_DIR"
 
-python3 "$CASE_DIR/tools/verify_location_in_mesh.py" --obj "$CASE_DIR/constant/triSurface/hs5_cfd.openfoam.obj" --exclude-closed-surface "$CASE_DIR/constant/geometry/aluminum-zone.obj" --point "(0.036 0.02 -0.001)"
+python3 "$CASE_DIR/tools/verify_location_in_mesh.py" --obj "$CASE_DIR/constant/triSurface/hs5_cfd.openfoam.obj" --exclude-closed-surface "$CASE_DIR/constant/geometry/aluminum-zone.obj" --point "(0.0360082915 0.020000001 -0.001)"
 
 surfaceCheck "$CASE_DIR/constant/triSurface/hs5_cfd.openfoam.obj" | tee log.surfaceCheck.hs5_cfd
 surfaceCheck "$CASE_DIR/constant/geometry/mrf-zone.obj" | tee log.surfaceCheck.mrf-zone

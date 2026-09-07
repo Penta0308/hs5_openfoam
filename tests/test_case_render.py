@@ -4,7 +4,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from tools.case_render import CASE_TOOLS, render_case_files
+from tools.case_render import CASE_TOOLS, SOLVER_TOOL_DIRS, render_case_files
 
 
 class CaseRenderTests(unittest.TestCase):
@@ -31,9 +31,11 @@ class CaseRenderTests(unittest.TestCase):
 
             self.assertEqual("name static-case\n", (root / "case" / "system" / "controlDict").read_text(encoding="utf-8"))
             self.assertEqual("clean static-case\n", (root / "case" / "Allclean").read_text(encoding="utf-8"))
-            self.assertEqual(set(CASE_TOOLS), {path.name for path in (root / "case" / "tools").iterdir()})
+            self.assertTrue(set(CASE_TOOLS).issubset({path.name for path in (root / "case" / "tools").iterdir()}))
+            self.assertTrue(set(SOLVER_TOOL_DIRS).issubset({path.name for path in (root / "case" / "tools").iterdir()}))
             self.assertIn("verify_mesh_contract.py", CASE_TOOLS)
             self.assertIn("flow_runner.py", CASE_TOOLS)
+            self.assertTrue((root / "case" / "tools" / "fixed_phi_thermal_solver" / "fixedPhiThermalFoam.C").is_file())
 
     def test_allclean_targets_only_generated_mesh_artifacts(self) -> None:
         allclean = (Path(__file__).resolve().parents[1] / "openfoam" / "templates" / "Allclean.tmpl").read_text(encoding="utf-8")

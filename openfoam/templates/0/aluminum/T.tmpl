@@ -6,10 +6,9 @@ boundaryField
     aluminum_to_fluid { type coupledTemperature; value uniform 293.15; }
     patch_heatsource
     {
-        // 4 W is total power over this 10100-face patch, never a W/m2 flux.
         type externalWallHeatFluxTemperature;
         mode power;
-        Q uniform 4;
+        Q uniform 5;
         value uniform 293.15;
     }
     wall { type zeroGradient; }

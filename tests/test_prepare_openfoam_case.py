@@ -73,9 +73,9 @@ class PrepareOpenFoamCaseTests(unittest.TestCase):
             calls.append("export")
             destination.mkdir(parents=True, exist_ok=True)
             master, mrf, aluminum = destination / "master.obj", destination / "mrf.obj", destination / "master_1.obj"
-            master.write_text("g master\nusemtl 0,92,255\nf 1 2 3\n", encoding="utf-8")
-            mrf.write_bytes(b"mrf profile bytes\n")
-            aluminum.write_bytes(b"aluminum profile bytes\n")
+            master.write_text("v 0 0 0\nv 1 0 0\nv 0 1 0\ng master\nusemtl 0,92,255\nf 1 2 3\n", encoding="utf-8")
+            mrf.write_text("v 24 8 0\nv 48 32 3\n", encoding="utf-8")
+            aluminum.write_text("v 0 0 -1.4\nv 1 1 1\n", encoding="utf-8")
             return master, mrf, aluminum
 
         def normalize_raw(*args, **kwargs):

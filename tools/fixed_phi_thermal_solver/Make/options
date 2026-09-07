@@ -1,0 +1,38 @@
+EXE_INC = \
+    -I$(FOAM_APP)/modules/fluid/lnInclude \
+    -I$(FOAM_APP)/modules/isothermalFluid/lnInclude \
+    -I$(FOAM_APP)/modules/basicFluidSolver/lnInclude \
+    -I$(FOAM_APP)/modules/solid/lnInclude \
+    -I$(LIB_SRC)/finiteVolume/lnInclude \
+    -I$(LIB_SRC)/meshTools/lnInclude \
+    -I$(LIB_SRC)/fvModels/general/lnInclude \
+    -I$(LIB_SRC)/fvModels/interRegion/lnInclude \
+    -I$(LIB_SRC)/fvConstraints/lnInclude \
+    -I$(LIB_SRC)/physicalProperties/lnInclude \
+    -I$(LIB_SRC)/thermophysicalModels/basic/lnInclude \
+    -I$(LIB_SRC)/thermophysicalModels/solidThermo/lnInclude \
+    -I$(LIB_SRC)/MomentumTransportModels/momentumTransportModels/lnInclude \
+    -I$(LIB_SRC)/MomentumTransportModels/compressible/lnInclude \
+    -I$(LIB_SRC)/ThermophysicalTransportModels/thermophysicalTransportModel/lnInclude \
+    -I$(LIB_SRC)/ThermophysicalTransportModels/fluid/lnInclude \
+    -I$(LIB_SRC)/ThermophysicalTransportModels/fluidThermo/lnInclude \
+    -I$(LIB_SRC)/ThermophysicalTransportModels/solid/lnInclude
+
+EXE_LIBS = \
+    -lfluidSolver \
+    -lisothermalFluidSolver \
+    -lbasicFluidSolver \
+    -lsolidSolver \
+    -lfiniteVolume \
+    -lmeshTools \
+    -lfvModels \
+    -lfvConstraints \
+    -lphysicalProperties \
+    -lfluidThermophysicalModels \
+    -lfluidThermoThermophysicalTransportModels \
+    -lfluidThermophysicalTransportModel \
+    -lthermophysicalTransportModel \
+    -lmomentumTransportModels \
+    -lcompressibleMomentumTransportModels \
+    -lsolidThermo \
+    -lsolidThermophysicalTransportModels

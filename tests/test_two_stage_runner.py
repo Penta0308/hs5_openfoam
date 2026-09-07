@@ -90,6 +90,7 @@ class TwoStageRunnerTests(unittest.TestCase):
             (case / "0" / "keep").write_text("protected", encoding="utf-8")
             (case / "constant" / "aluminum").mkdir(parents=True)
             (case / "constant" / "aluminum" / "keep").write_text("protected", encoding="utf-8")
+            (case / "tools" / "fixed_phi_thermal_solver").mkdir(parents=True)
             (case / "50").mkdir()
             commands: list[tuple[str, ...]] = []
 
@@ -98,28 +99,26 @@ class TwoStageRunnerTests(unittest.TestCase):
                 if command == ("bash", "Allrun.flow"):
                     (cwd / "log.flow").write_text(
                         "\n".join(
-                            f"Solving for {field}, Final residual = 9e-06" for field in ("p", "U", "k", "omega")
+                            f"Solving for {field}, Final residual = 9e-06" for field in ("p", "Ux", "Uy", "Uz")
                         ) + "\nPIMPLE: converged\n",
                         encoding="utf-8",
                     )
                     self.populate_flow_time(cwd)
-                else:
-                    source = cwd / "200" / "fluid"
-                    for field in FLOW_FIELDS:
-                        self.assertEqual((source / field).read_text(encoding="utf-8"), (cwd / "0" / "fluid" / field).read_text(encoding="utf-8"))
-                    (cwd / "log.thermal").write_text(
-                        "Solving for h, Final residual = 9e-06\nSolving for e, Final residual = 9e-07\nsolution converged\n",
+                elif command[0] == "bash" and "fixed_phi_thermal.py" in command[-1]:
+                    (cwd / "log.fixedPhiThermal").write_text(
+                        "Solving for h, Final residual = 9e-06\nSolving for e, Final residual = 9e-07\n",
                         encoding="utf-8",
                     )
                     self.populate_metrics(cwd)
                 return 0
 
             self.assertEqual(0, run_two_stage(case, fresh=True, run_command=fake_run))
-            self.assertEqual([("bash", "Allrun.flow"), ("foamMultiRun",)], commands)
+            self.assertEqual(("bash", "Allrun.flow"), commands[0])
+            self.assertTrue(any(command[0] == "bash" and "wmake" in command[-1] for command in commands))
+            self.assertTrue(any(command[0] == "bash" and "fixed_phi_thermal.py" in command[-1] for command in commands))
             self.assertFalse((case / "50").exists())
             self.assertEqual("protected", (case / "0" / "keep").read_text(encoding="utf-8"))
             self.assertEqual("protected", (case / "constant" / "aluminum" / "keep").read_text(encoding="utf-8"))
-            self.assert_initial_flow_fields(case)
             result = json.loads((case / "result.json").read_text(encoding="utf-8"))
             self.assertEqual("success", result["status"])
             self.assertTrue(result["flowConverged"])
@@ -146,27 +145,27 @@ class TwoStageRunnerTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             case = Path(directory)
             self.populate_initial_flow_fields(case)
+            (case / "tools" / "fixed_phi_thermal_solver").mkdir(parents=True)
 
             def fake_run(command: tuple[str, ...], cwd: Path) -> int:
                 if command == ("bash", "Allrun.flow"):
                     (cwd / "log.flow").write_text(
                         "\n".join(
-                            f"Solving for {field}, Final residual = 9e-06" for field in ("p", "U", "k", "omega")
+                            f"Solving for {field}, Final residual = 9e-06" for field in ("p", "Ux", "Uy", "Uz")
                         ) + "\nPIMPLE: converged\n",
                         encoding="utf-8",
                     )
                     self.populate_flow_time(cwd)
                     return 0
-                for field in FLOW_FIELDS:
-                    self.assertEqual(f"flow-{field}\n", (cwd / "0" / "fluid" / field).read_text(encoding="utf-8"))
-                return 2
+                if command[0] == "bash" and "fixed_phi_thermal.py" in command[-1]:
+                    return 2
+                return 0
 
             self.assertEqual(1, run_two_stage(case, run_command=fake_run))
             result = json.loads((case / "result.json").read_text(encoding="utf-8"))
             self.assertTrue(result["flowConverged"])
             self.assertFalse(result["thermalConverged"])
             self.assertEqual("non_converged", result["status"])
-            self.assert_initial_flow_fields(case)
 
 
 if __name__ == "__main__":

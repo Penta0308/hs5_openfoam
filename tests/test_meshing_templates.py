@@ -21,25 +21,24 @@ class MeshingTemplateTests(unittest.TestCase):
             "startFrom": "latestTime",
             "startTime": "0",
             "stopAt": "endTime",
-            "endTime": "40",
+            "endTime": "1000",
             "deltaT": "1",
             "adjustTimeStep": "no",
             "writeControl": "timeStep",
-            "writeInterval": "50",
+            "writeInterval": "100",
             "writeFormat": "ascii",
             "writePrecision": "12",
         }
         for key, value in expected_entries.items():
             self.assertRegex(self.control, rf"\b{key}\s+{re.escape(value)}\s*;")
 
-    def test_block_mesh_uses_confirmed_mm_bounds_scale_and_cells(self) -> None:
+    def test_block_mesh_uses_obj_derived_mm_bounds_scale_and_cells(self) -> None:
         self.assertRegex(self.block, r"\bconvertToMeters\s+0\.001\s*;")
-        for vertex in (
-            "(-0.4      -0.4      -8.4)",
-            "(51.460863 39.400001  4.4)",
+        for token in (
+            "[[BLOCK_XMIN]]", "[[BLOCK_XMAX]]", "[[BLOCK_YMIN]]", "[[BLOCK_YMAX]]",
+            "[[BLOCK_ZMIN]]", "[[BLOCK_ZMAX]]", "[[BLOCK_NX]]", "[[BLOCK_NY]]", "[[BLOCK_NZ]]",
         ):
-            self.assertIn(vertex, self.block)
-        self.assertRegex(self.block, r"hex \(0 1 2 3 4 5 6 7\) \(130 100 32\)")
+            self.assertIn(token, self.block)
         self.assertEqual(6, len(re.findall(r"\b[xyz](?:min|max)\s*\{\s*type wall;", self.block)))
 
     def test_snappy_uses_single_normalized_tri_surface_in_meters(self) -> None:
@@ -74,7 +73,7 @@ class MeshingTemplateTests(unittest.TestCase):
         self.assertRegex(self.snappy, r"\blocationInMesh\s+\[\[LOCATION_IN_MESH_M\]\]\s*;")
         self.assertRegex(self.snappy, r"\bminTetQuality\s+1e-15\s*;")
         self.assertRegex(self.snappy, r"\bminTwist\s+0\.02\s*;")
-        self.assertRegex(self.snappy, r"\bpatch_blade\s*\{\s*level\s+\(1 1\)\s*;\s*\}")
+        self.assertRegex(self.snappy, r"\bpatch_blade\s*\{\s*level\s+\(2 2\)\s*;\s*\}")
 
     def test_create_zones_uses_two_top_level_v14_inside_surface_generators(self) -> None:
         self.assertNotIn("topoSet", self.create_zones)

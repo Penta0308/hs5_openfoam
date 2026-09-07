@@ -13,16 +13,14 @@ solvers
 }
 PIMPLE
 {
-    nOuterCorrectors 3;
-    nCorrectors 3;
-    nNonOrthogonalCorrectors 1;
+    flow false;
+    thermophysics true;
+    nOuterCorrectors 2;
+    nCorrectors 0;
+    nNonOrthogonalCorrectors 0;
     residualControl
     {
-        p       1e-5;
-        U       1e-5;
         h       1e-5;
-        k       1e-5;
-        omega   1e-5;
     }
 }
-relaxationFactors { fields { p 0.2; } equations { "(U|k|omega|h|T)" 0.5; } }
+relaxationFactors { equations { "(h|T)" 0.7; } }

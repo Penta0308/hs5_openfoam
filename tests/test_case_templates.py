@@ -39,6 +39,15 @@ STATIC_CONTEXT: dict[str, object] = {
         "mrf": "mrf",
         "master_1": "aluminum",
     }, indent=2, ensure_ascii=False),
+    "BLOCK_XMIN": "-0.4",
+    "BLOCK_XMAX": "51.460863",
+    "BLOCK_YMIN": "-0.4",
+    "BLOCK_YMAX": "39.400001",
+    "BLOCK_ZMIN": "-8.4",
+    "BLOCK_ZMAX": "4.4",
+    "BLOCK_NX": 130,
+    "BLOCK_NY": 100,
+    "BLOCK_NZ": 32,
 }
 
 
@@ -98,26 +107,29 @@ class CaseTemplateRenderTests(unittest.TestCase):
         self.assertIn("equationOfState { rho 1.204; }", fluid_physical)
         self.assertIn("type            heSolidThermo;", aluminum_physical)
         self.assertIn("ddtSchemes { default steadyState; }", fluid_schemes)
-        self.assertIn("nOuterCorrectors 3;", fluid_solution)
+        self.assertIn("flow false;", fluid_solution)
+        self.assertIn("thermophysics true;", fluid_solution)
+        self.assertIn("nOuterCorrectors 2;", fluid_solution)
         self.assertIn("residualControl", fluid_solution)
-        for field in ("p", "U", "h", "k", "omega"):
-            self.assertRegex(fluid_solution, rf"\b{field}\s+1e-5;")
+        self.assertRegex(fluid_solution, r"\bh\s+1e-5;")
+        for field in ("p", "U", "k", "omega"):
+            self.assertNotRegex(fluid_solution, rf"\b{field}\s+1e-5;")
         self.assertIn("e 1e-6;", rendered("system/aluminum/fvSolution.tmpl"))
         self.assertIn("fluid_to_aluminum { type coupledTemperature;", fluid_t)
         self.assertIn("aluminum_to_fluid { type coupledTemperature;", aluminum_t)
         self.assertIn("mode power;", aluminum_t)
-        self.assertIn("Q uniform 4;", aluminum_t)
+        self.assertIn("Q uniform 5;", aluminum_t)
         self.assertNotIn("q uniform 4", aluminum_t)
         self.assertIn("wall { type zeroGradient; }", aluminum_t)
         self.assertIn("application     foamMultiRun;", control)
         self.assertIn("fluid       fluid;", control)
         self.assertIn("aluminum    solid;", control)
         self.assertIn("startFrom       latestTime;", control)
-        self.assertIn("endTime         40;", control)
+        self.assertIn("endTime         1000;", control)
         self.assertIn("deltaT          1;", control)
         self.assertIn("adjustTimeStep  no;", control)
         self.assertIn("writeFormat     ascii;", control)
-        self.assertIn("writeInterval   50;", control)
+        self.assertIn("writeInterval   100;", control)
         self.assertNotIn("maxCo", control)
         self.assertNotIn("chtMultiRegionFoam", rendered("Allrun.tmpl"))
 

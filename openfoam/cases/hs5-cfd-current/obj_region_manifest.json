@@ -3,11 +3,11 @@
   "sourceObj": "constant/triSurface/master.obj",
   "normalizedObj": "constant/triSurface/hs5_cfd.openfoam.obj",
   "regionFaceCounts": {
-    "patch_inlet": 33,
+    "patch_inlet": 29,
     "patch_heatsource": 2,
-    "patch_outlet": 4,
-    "patch_blade": 2412,
-    "wall": 1499,
+    "patch_outlet": 2,
+    "patch_blade": 2372,
+    "wall": 275,
     "mrf": 0,
     "aluminum": 0
   },

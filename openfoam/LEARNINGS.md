@@ -33,7 +33,7 @@ The shell entrypoint is rendered from `openfoam/templates/run-two-stage.sh.tmpl`
 **Stage order**: flow (`bash Allrun.flow`) then thermal (`foamMultiRun`). If flow fails or does not converge, thermal never starts and the runner exits non-zero.
 
 **Convergence rules**:
-- Flow stage: solver must print a convergence marker (e.g. `PIMPLE: converged`) with all four residuals (`p`, `U`, `k`, `omega`) present. Reaching `endTime` alone, even with low residuals, is **not** convergence.
+- Laminar flow stage: solver must print a convergence marker (e.g. `PIMPLE: converged`) with final residuals for `p`, `Ux`, `Uy`, and `Uz`. Reaching `endTime` alone, even with low residuals, is **not** convergence.
 - Thermal stage: solver must print a convergence marker with `h <= 1e-5` and `e <= 1e-6`. Hitting `endTime` alone is non-converged. This applies regardless of `endTime` cap; the cap produces a non-converged result.
 
 **`result.json` keys** (written to `<case>/result.json`):

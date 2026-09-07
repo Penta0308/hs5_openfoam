@@ -1,6 +1,6 @@
 {
   "caseId": "hs5-cfd-current",
-  "generatedAt": "2026-08-18T06:33:49.380205+00:00",
+  "generatedAt": "2026-08-31T12:17:35.386212+00:00",
   "openfoam": {
     "version": "14",
     "bashrc": "/opt/openfoam14/etc/bashrc"
@@ -92,7 +92,7 @@
     "units": "deg"
   },
   "OfanZ": {
-    "expression": "4.000 mm",
+    "expression": "3.000 mm",
     "units": "mm"
   },
   "OinletChamfer": {
@@ -117,10 +117,6 @@
   },
   "d6": {
     "expression": "OfanZ - 0.4 mm",
-    "units": "mm"
-  },
-  "d7": {
-    "expression": "0.2 mm",
     "units": "mm"
   }
 }

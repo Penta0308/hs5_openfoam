@@ -4,19 +4,3 @@ FoamFile
     class       dictionary;
     object      fvModels;
 }
-
-inletFilter
-{
-    type    porosityForce;
-
-    porosityForceCoeffs
-    {
-        select          cellZone;
-        cellZone        inletFilter;
-        type            DarcyForchheimer;
-        // Darcy-only rough KF80 reference: 60 Pa at 95 L/min through 1 mm.
-        d d [0 -2 0 0 0 0 0] (4.2e11 4.2e11 4.2e11);
-        f f [0 -1 0 0 0 0 0] (0 0 0);
-        coordinateSystem { type cartesian; origin (0 0 0); coordinateRotation { type axesRotation; e1 (1 0 0); e2 (0 1 0); } }
-    }
-}

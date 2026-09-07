@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import re
 import shutil
 from datetime import datetime, timezone
@@ -70,9 +71,65 @@ def fan_origin_m(parameters: dict[str, dict[str, str]]) -> str:
     return f"({values[0]:.12g} {values[1]:.12g} {values[2]:.12g})"
 
 
-def render_context(cfd: Path, output: Path, state: dict[str, Any], generated_at: str) -> dict[str, object]:
-    parameters = state["cfd"]["parameters"]
+def obj_bounds(surface: Path) -> tuple[list[float], list[float]]:
+    vertices: list[tuple[float, float, float]] = []
+    for line in surface.read_text(encoding="utf-8").splitlines():
+        if line.startswith("v "):
+            vertices.append(tuple(float(value) for value in line.split()[1:4]))
+    if not vertices:
+        raise ValueError(f"OBJ has no vertices: {surface}")
+    return (
+        [min(vertex[axis] for vertex in vertices) for axis in range(3)],
+        [max(vertex[axis] for vertex in vertices) for axis in range(3)],
+    )
+
+
+def mesh_bounds_context(surface: Path) -> dict[str, object]:
+    source_minimum, source_maximum = obj_bounds(surface)
+    padding = 0.4
+    minimum = [value - padding for value in source_minimum]
+    maximum = [value + padding for value in source_maximum]
+    cells = [math.ceil((maximum[axis] - minimum[axis]) / 0.4) for axis in range(3)]
     return {
+        "BLOCK_XMIN": f"{minimum[0]:.12g}",
+        "BLOCK_XMAX": f"{maximum[0]:.12g}",
+        "BLOCK_YMIN": f"{minimum[1]:.12g}",
+        "BLOCK_YMAX": f"{maximum[1]:.12g}",
+        "BLOCK_ZMIN": f"{minimum[2]:.12g}",
+        "BLOCK_ZMAX": f"{maximum[2]:.12g}",
+        "BLOCK_NX": cells[0],
+        "BLOCK_NY": cells[1],
+        "BLOCK_NZ": cells[2],
+    }
+
+
+def adaptive_location_in_mesh_m(mrf_obj: Path, aluminum_obj: Path) -> str:
+    mrf_minimum, mrf_maximum = obj_bounds(mrf_obj)
+    aluminum_minimum, _ = obj_bounds(aluminum_obj)
+    point = (
+        (mrf_minimum[0] + mrf_maximum[0]) / 2000.0,
+        (mrf_minimum[1] + mrf_maximum[1]) / 2000.0,
+        (aluminum_minimum[2] + 0.4) / 1000.0,
+    )
+    return f"({point[0]:.12g} {point[1]:.12g} {point[2]:.12g})"
+
+
+def render_context(
+    cfd: Path,
+    output: Path,
+    state: dict[str, Any],
+    generated_at: str,
+    master_obj: Path | None = None,
+    mrf_obj: Path | None = None,
+    aluminum_obj: Path | None = None,
+) -> dict[str, object]:
+    parameters = state["cfd"]["parameters"]
+    location = (
+        adaptive_location_in_mesh_m(mrf_obj, aluminum_obj)
+        if mrf_obj is not None and aluminum_obj is not None
+        else location_in_mesh_m(parameters)
+    )
+    context: dict[str, object] = {
         "CASE_ID": output.name,
         "GENERATED_AT": generated_at,
         "CFD_IPT_JSON": json.dumps(str(cfd.resolve())),
@@ -83,11 +140,14 @@ def render_context(cfd: Path, output: Path, state: dict[str, Any], generated_at:
         "MRF_ZONE_OBJ": "constant/geometry/mrf-zone.obj",
         "ALUMINUM_ZONE_OBJ": "constant/geometry/aluminum-zone.obj",
         "OBJ_REGION_MANIFEST": "obj_region_manifest.json",
-        "LOCATION_IN_MESH_M": location_in_mesh_m(parameters),
+        "LOCATION_IN_MESH_M": location,
         "FAN_ORIGIN_M": fan_origin_m(parameters),
         "PARAMETERS_JSON": json.dumps(parameters, indent=2, ensure_ascii=False),
         "CFD_NAMING_CONTRACT_JSON": json.dumps(state["cfdNamingContract"], indent=2, ensure_ascii=False),
     }
+    if master_obj is not None:
+        context.update(mesh_bounds_context(master_obj))
+    return context
 
 
 def render_templates(output: Path, context: dict[str, object]) -> None:
@@ -186,7 +246,7 @@ def prepare_case(
     )
 
     generated_at = datetime.now(timezone.utc).isoformat()
-    context = render_context(cfd, output, state, generated_at)
+    context = render_context(cfd, output, state, generated_at, master_obj, _mrf_obj, _aluminum_obj)
     render_templates(output, context)
     copy_readme(output)
     write_text_atomic(output / "cad_state.json", json.dumps(state, indent=2, ensure_ascii=False))
